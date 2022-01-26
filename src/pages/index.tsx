@@ -3,6 +3,8 @@ import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import { Button } from 'carbon-components-react'
+
 
 const Index: React.FunctionComponent = () => {
   return (
@@ -12,6 +14,7 @@ const Index: React.FunctionComponent = () => {
       <p>On this website I try out some different stuff and in the end show of some of my skills</p>
       <p>The question is, who I am and what can I do.</p>
       <p>This site is always work in progress, as I am as well.</p>
+      <Button>Example</Button>
       <StaticImage
         src="../images/gatsby-astronaut.png"
         width={300}
