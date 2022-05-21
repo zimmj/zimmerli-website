@@ -1,0 +1,13 @@
+.gallery-grid {
+ display: grid;
+ gap: 5px;
+ grid-template-columns: repeat(5, 80px);
+}
+
+.gallery-pod--grey {
+  background-color: gray;
+  height: 120px;
+  width: 160px;
+  justify-self: center;
+  grid-column: span 2;
+}

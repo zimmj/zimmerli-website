@@ -5,9 +5,8 @@
   "version": "0.1.0",
   "author": "Joël Zimmerli <zimmi.94@live.de>",
   "dependencies": {
-    "carbon-components": "^10.51.0",
-    "carbon-components-react": "^7.51.0",
     "carbon-icons": "^7.0.7",
+    "dotenv": "^14.3.2",
     "gatsby": "^4.5.4",
     "gatsby-plugin-gatsby-cloud": "^4.5.2",
     "gatsby-plugin-image": "^2.5.2",
@@ -24,7 +23,6 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "@types/carbon-components-react": "^7.49.0",
     "@types/node": "^12.12.11",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",

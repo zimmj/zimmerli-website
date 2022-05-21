@@ -17,6 +17,8 @@ export const Gallery: React.FunctionComponent = () => {
                     }
                 }
                 resource_type
+                height
+                width
             }
         }
         }
@@ -24,6 +26,7 @@ export const Gallery: React.FunctionComponent = () => {
   );
 
   const images: any[] = data.allCloudinaryMedia.edges;
+  console.log(images)
 
   return (
     <div>
