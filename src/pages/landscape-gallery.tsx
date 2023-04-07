@@ -11,6 +11,9 @@ const LandScapeGellery: React.FunctionComponent = () => {
         <div className="gallery-pod--grey"></div>
         <div className="gallery-pod--grey"></div>
         <div className="gallery-pod--grey"></div>
+        <div className="gallery-pod--grey"></div>
+        <div className="gallery-pod--grey"></div>
+        <div className="gallery-pod--grey"></div>
       </div>
     </Layout>
   )
