@@ -6,7 +6,9 @@ import Seo from "../components/seo"
 
 const Index: React.FunctionComponent = () => {
   return (
+    <div >
     <Layout>
+      <div>
       <Seo title="home" description="This is the landing page of the website" />
       <h1>Welcome to my playground</h1>
       <p>On this website I try out some different stuff and in the end show of some of my skills</p>
@@ -20,7 +22,9 @@ const Index: React.FunctionComponent = () => {
         alt="A Gatsby astronaut"
         style={{ marginBottom: `1.45rem` }}
       />
+      </div>
     </Layout>
+    </div>
   )
 }
 

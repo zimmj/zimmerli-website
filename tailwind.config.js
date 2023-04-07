@@ -1,11 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-      "./src/pages/**/*.{js,jsx,ts,tsx}",
-      "./src/components/**/*.{js,jsx,ts,tsx}",
+  content: [
+    './src/pages/**/*.{js,jsx,ts,tsx}',
+    './src/components/**/*.{js,jsx,ts,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  daisyui: {
+    themes: [
+      'halloween',
+      'pastel',
+      {
+        mytheme: {
+          primary: '#0c8c81',
+          secondary: '#fcbe76',
+          accent: '#f9392f',
+          neutral: '#161922',
+          'base-100': '#353D45',
+          info: '#88AFF1',
+          success: '#68E3BC',
+          warning: '#F7BA64',
+          error: '#F23A78',
+        },
+      },
     ],
-    theme: {
-      extend: {},
-    },
-    plugins: [],
-  }
+  },
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+};

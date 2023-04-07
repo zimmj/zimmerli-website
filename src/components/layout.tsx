@@ -9,7 +9,6 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
 
 interface LayoutProps {
   children: React.ReactNode
@@ -29,7 +28,7 @@ const Layout : React.FunctionComponent<LayoutProps> = ({ children })  => {
   const siteTitle: string = data.site.siteMetadata?.title || 'Title'
 
   return (
-    <>
+    <div data-theme="halloween" className="prose">
       <Header siteTitle={siteTitle} />
       <div
         style={{
@@ -49,7 +48,7 @@ const Layout : React.FunctionComponent<LayoutProps> = ({ children })  => {
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

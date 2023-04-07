@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Joël Zimmerli <zimmi.94@live.de>",
   "dependencies": {
+    "@fontsource/inter": "^4.5.15",
+    "daisyui": "^2.51.5",
     "gatsby": "^5.8.1",
     "gatsby-plugin-gatsby-cloud": "^5.8.0",
     "gatsby-plugin-image": "^3.8.0",
@@ -20,6 +22,7 @@
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
