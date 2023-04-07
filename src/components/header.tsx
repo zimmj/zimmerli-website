@@ -6,16 +6,15 @@ interface HeaderProps {
 }
 
 const Header = ({ siteTitle } : HeaderProps) => (
-  <header className="mb-8">
-    <div >
-      <h1 className="underline">
+  <header className="pt-4 flex justify-center w-full bg-primary">
+      <h1 className="underline ">
         <Link
+        className="text-neutral font-extrabold"
           to="/"
         >
           {siteTitle}
         </Link>
       </h1>
-    </div>
   </header>
 )
 

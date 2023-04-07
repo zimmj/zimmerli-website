@@ -9,8 +9,6 @@ module.exports = {
   },
   daisyui: {
     themes: [
-      'halloween',
-      'pastel',
       {
         mytheme: {
           primary: '#0c8c81',
@@ -24,6 +22,8 @@ module.exports = {
           error: '#F23A78',
         },
       },
+      'pastel',
+      'halloween',
     ],
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
