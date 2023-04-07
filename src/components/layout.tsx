@@ -9,14 +9,13 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
-const Layout : React.FunctionComponent<LayoutProps> = ({ children })  => {
-  const data : any = useStaticQuery(graphql`
+const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
+  const data: any = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -29,27 +28,19 @@ const Layout : React.FunctionComponent<LayoutProps> = ({ children })  => {
   const siteTitle: string = data.site.siteMetadata?.title || 'Title'
 
   return (
-    <>
+    <div className="w-full h-screen prose max-w-none" style={{
+      display: "grid",
+      gridTemplateRows: "min-content 1fr min-content"
+    }}>
       <Header siteTitle={siteTitle} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+      <main className="mx-auto">{children}</main>
+
+      <footer className="m-auto">
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.com">Gatsby</a>
+      </footer>
+    </div>
   )
 }
 
