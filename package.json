@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "author": "Joël Zimmerli <zimmi.94@live.de>",
   "dependencies": {
-    "@fontsource/inter": "^4.5.15",
     "daisyui": "^2.51.5",
     "gatsby": "^5.8.1",
     "gatsby-plugin-gatsby-cloud": "^5.8.0",
