@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Joel Zimmerli's page`,
@@ -35,5 +39,25 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-cloudinary`,
+      options: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+        apiKey: process.env.CLOUDINARY_API_KEY,
+        apiSecret: process.env.CLOUDINARY_API_SECRET,
+        resourceType: `image`,
+        prefix: `canadian-landscape`,
+        context: true,
+        tags: true,
+        maxResults: 50,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-cloudinary`,
+      options: {
+        // Add the `gatsbyImageData` resolver to `CloudinaryMedia`
+        transformTypes: [`CloudinaryMedia`],
+      },
+    },
   ],
 };

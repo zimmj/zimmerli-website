@@ -33,7 +33,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
       gridTemplateRows: "min-content 1fr min-content"
     }}>
       <Header siteTitle={siteTitle} />
-      <main className="mx-auto">{children}</main>
+      <main className="mx-auto w-full">{children}</main>
 
       <footer className="m-auto">
         © {new Date().getFullYear()}, Built with

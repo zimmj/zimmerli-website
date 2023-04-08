@@ -2,12 +2,13 @@ import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Link } from "gatsby"
 
 const Index: React.FunctionComponent = () => {
   return (
     <div >
       <Layout>
-        <div className="max-w-xl">
+        <div className="max-w-xl width-12 mx-auto">
           <Seo title="home" description="This is the landing page of the website" />
           <h2>Welcome to my humble website</h2>
           <p>This webiste is in a slow build up phase. At the moment I try out Gatsby itself.
@@ -24,7 +25,7 @@ const Index: React.FunctionComponent = () => {
           <h3>Future Stuff on the website</h3>
           <ul>
             <li>About me page</li>
-            <li>Photo Galery of pictures from my travelings</li>
+            <li>Photo Galery of pictures from my travelings <Link to="gallery">First step</Link></li>
           </ul>
         </div>
       </Layout>
