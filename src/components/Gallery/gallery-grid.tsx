@@ -1,9 +1,8 @@
 import React from "react"
-import GalleryPicture from "./gallery-picture"
 
 const GalleryGrid: React.FunctionComponent<GalleryPictureProps> = ({children, windowWidth}) => {
     return (
-        <div className="flex mt-4 w-full">
+        <div className="flex mt-4 w-full" id="Gallery">
             <div className="pl-8 w-full" style={{
                     display: "grid",
                     gap: "5px",
@@ -18,6 +17,7 @@ const GalleryGrid: React.FunctionComponent<GalleryPictureProps> = ({children, wi
 }
 
 export interface GalleryPictureProps {
+    children: React.ReactNode;
     windowWidth: number;
 } 
 

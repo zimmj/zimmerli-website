@@ -8,11 +8,14 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
+
 import Header from "./header"
+import ReactModal from "react-modal"
 
 interface LayoutProps {
   children: React.ReactNode
 }
+ReactModal.setAppElement('#___gatsby')
 
 const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
   const data: any = useStaticQuery(graphql`
