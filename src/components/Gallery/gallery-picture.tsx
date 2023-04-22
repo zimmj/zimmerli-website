@@ -1,47 +1,25 @@
-import React, { useEffect, useMemo } from "react"
+import React, { useMemo } from "react"
 
 import { Cloudinary, CloudinaryImage } from "@cloudinary/url-gen";
 import { thumbnail } from "@cloudinary/url-gen/actions/resize";
-import { AdvancedImage } from "@cloudinary/react";
+import { AdvancedImage, lazyload} from "@cloudinary/react";
 import { crop } from "@cloudinary/url-gen/actions/resize";
 import { coloumnWidthFunction } from "./gallery-grid";
 
-const cld = new Cloudinary({
-    cloud: {
-        cloudName: 'jzimmj'
-    }
-});
 
 
-const GalleryPicture: React.FunctionComponent<GalleryPictureProps> = ({ picture, windowWidth, index, openModal }) => {
-    const columnWidth = coloumnWidthFunction(windowWidth);
-    const maxSpan = Math.floor(windowWidth / columnWidth);
-    const span = Math.min(Math.floor(picture.width / picture.height), maxSpan);
-
-    const imageTage = useMemo(() => calculatePictureTag(maxSpan, span), [maxSpan, span]);
-
-    function calculatePictureTag(maxSpan: number, span: number): CloudinaryImage {
-        console.log("calculatePictureTag")
-        const pictureColumnWidth = picture.width / maxSpan;
-        const amountOfGap = 5 * (span - 1);
-        const cloudinaryImage = cld.image(picture.id);
-        if (maxSpan == span) {
-            return cloudinaryImage
-                .resize(crop().width((pictureColumnWidth * span) + amountOfGap).height(pictureColumnWidth))
-                .resize(thumbnail().width((columnWidth * span) + amountOfGap).height(columnWidth));
-        } else {
-            return cloudinaryImage
-                .resize(thumbnail().width((columnWidth * span) + amountOfGap).height(columnWidth));
-        }
-    }
-
+const GalleryPicture: React.FunctionComponent<GalleryPictureProps> = ({ picture, columnWidth, index, openModal }) => {
+    
     //tailwind uses col-span-1 col-span-2 col-span-3 col-span-4 col-span -5
     return (
         <>
-            <div key={index} className={`group not-prose col-span-${span} relative`}
+            <div key={index} className={`group not-prose col-span-${picture.span} relative`}
+                style={{
+                    height: columnWidth
+                }}
                 onClick={() => openModal(picture)}
             >
-                <AdvancedImage cldImg={imageTage} alt={picture.alt} />
+                <AdvancedImage cldImg={picture.pictureTag} alt={picture.alt} plugins={[lazyload({ rootMargin: '10px 20px 10px 30px', threshold: 0.25 })]} />
                 <div className="hidden group-hover:block absolute top-0 bg-base-100/60 px-2">
                     {picture.caption}
                 </div>
@@ -57,13 +35,14 @@ const GalleryPicture: React.FunctionComponent<GalleryPictureProps> = ({ picture,
 
 export interface GalleryPictureProps {
     picture: PictureFormat;
-    windowWidth: number;
+    columnWidth: number;
     index: number;
     openModal: (picture: PictureFormat) => void;
 }
 
 export interface PictureFormat {
-    url: string;
+    pictureTag: CloudinaryImage;
+    span: number;
     id: string;
     width: number;
     height: number;
