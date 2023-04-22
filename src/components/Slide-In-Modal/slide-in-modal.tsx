@@ -1,13 +1,17 @@
 import React from 'react';
+import { useDocument } from '../../hooks/userDocument';
 
 
 const SlideInModal: React.FunctionComponent<SlideInModalProps> = ({ children, isOpen, onClose }) => {
 
-    if (isOpen) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'unset';
+    const doc = useDocument();
+    if (doc) {
+        isOpen ?
+            doc.body.style.overflow = 'hidden' :
+            doc.body.style.overflow = 'unset';
+
     }
+
 
     return (
         <div className={`slide-in transition-all ${isOpen ? 'duration-0' : 'duration-300'} ${isOpen ? 'w-full' : 'w-0'} fixed h-screen w-screen bg-slate-400/60 top-0 right-0 z-30`} onClick={onClose}>
