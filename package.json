@@ -9,7 +9,7 @@
     "@cloudinary/url-gen": "^1.9.2",
     "@react-hook/window-size": "^3.1.1",
     "carbon-icons": "^7.0.7",
-    "daisyui": "^2.51.5",
+    "daisyui": "^3.1.0",
     "dotenv": "^16.0.3",
     "gatsby": "^5.8.1",
     "gatsby-plugin-gatsby-cloud": "^5.8.0",

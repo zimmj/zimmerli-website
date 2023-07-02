@@ -9,6 +9,10 @@ const cld = new Cloudinary({
     }
 });
 
+export interface GalleryPictureProps {
+    picture: PictureFormat | null;
+}
+
 const DetailPicture: React.FunctionComponent<GalleryPictureProps> = ({ picture }) => {
 
     if(picture == null) return (<div></div>);
@@ -45,6 +49,3 @@ const DetailPicture: React.FunctionComponent<GalleryPictureProps> = ({ picture }
 
 export default DetailPicture;
 
-export interface GalleryPictureProps {
-    picture: PictureFormat | null;
-}
