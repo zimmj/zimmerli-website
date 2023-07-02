@@ -59,9 +59,8 @@ const Index: React.FunctionComponent = () => {
           <h3>Future Stuff on the website</h3>
           <ul>
             <li>About me page</li>
-            <li>Photo Galery of pictures from my travelings 
-              <Link to="gallery">First step</Link>
-              </li>
+            <li>Photo Galery of pictures from my travelings <Link to="gallery">First step</Link>
+            </li>
           </ul>
         </div>
       </Layout>
