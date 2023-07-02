@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from "gatsby"
 
 interface HeaderProps {
   siteTitle: string,
@@ -32,16 +33,16 @@ const Header = ({ siteTitle }: HeaderProps) => {
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-neutral/80 rounded-box">
             {navigationItems.map((item, index) => {
               return (
-                <li key={index}><a href={item.url}>{item.title}</a></li>
+                <li key={index}><Link to={item.url}>{item.title}</Link></li>
               )
             })}
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <a href="/" className="btn btn-ghost nromal-case text-xl font-bold">
+        <Link to="/" className="btn btn-ghost nromal-case text-xl font-bold">
           {siteTitle}
-        </a>
+        </Link>
       </div>
       <div className="navbar-end">
         <button className="btn btn-ghost btn-circle hidden">

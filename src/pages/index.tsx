@@ -1,9 +1,7 @@
-import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { Link } from "gatsby"
-import Accordion from "../components/Arcordion/accordion"
 import SimpleAccordion from "../components/Arcordion/simple-accordion"
 
 const Index: React.FunctionComponent = () => {
@@ -61,7 +59,9 @@ const Index: React.FunctionComponent = () => {
           <h3>Future Stuff on the website</h3>
           <ul>
             <li>About me page</li>
-            <li>Photo Galery of pictures from my travelings <Link to="gallery">First step</Link></li>
+            <li>Photo Galery of pictures from my travelings 
+              <Link to="gallery">First step</Link>
+              </li>
           </ul>
         </div>
       </Layout>

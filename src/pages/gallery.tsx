@@ -18,7 +18,7 @@ const cld = new Cloudinary({
 
 
 const LandScapeGellery: React.FunctionComponent = ({ data }) => {
-  const windowWidth = useWindowWidth();
+  const windowWidth = useWindowWidth({ wait: 100});
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [picture, setPicture] = React.useState<PictureFormat | null>(null);
 
