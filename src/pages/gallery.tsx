@@ -28,8 +28,10 @@ const LandScapeGellery: React.FunctionComponent = ({ data }) => {
   }
 
   function onCloseModal(): void {
-    setPicture(null);
     setIsOpen(false);
+    setTimeout(() => {
+      setPicture(null);
+    }, 500);
   }
 
   const columnWidth = coloumnWidthFunction(windowWidth);
@@ -53,9 +55,9 @@ const LandScapeGellery: React.FunctionComponent = ({ data }) => {
   function calculatePictures(): React.ReactNode {
     const pictures: React.ReactNode = data.allCloudinaryMedia.edges.map((node: any, index: number) => {
       const media: ICloudinaryMedia = node.node;
-      const span = Math.min(Math.floor(media.originalWidth/ media.originalHeight), maxSpan);
+      const span = Math.min(Math.floor(media.originalWidth / media.originalHeight), maxSpan);
       const pictureTag = calculatePicture(
-        maxSpan, media.originalWidth, span , media.publicId);
+        maxSpan, media.originalWidth, span, media.publicId);
       const picture: PictureFormat = {
         id: media.publicId,
         pictureTag: pictureTag,
@@ -79,7 +81,7 @@ const LandScapeGellery: React.FunctionComponent = ({ data }) => {
   }
 
   const pictures: React.ReactNode = useMemo(() => calculatePictures(), [columnWidth, maxSpan]);
-  
+
   return (
     <Layout>
       <Seo title="Picture Collection of Lanscapes from different travels" />

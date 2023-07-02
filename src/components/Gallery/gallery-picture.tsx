@@ -1,10 +1,7 @@
-import React, { useMemo } from "react"
+import React from "react"
 
-import { Cloudinary, CloudinaryImage } from "@cloudinary/url-gen";
-import { thumbnail } from "@cloudinary/url-gen/actions/resize";
+import { CloudinaryImage } from "@cloudinary/url-gen";
 import { AdvancedImage, lazyload} from "@cloudinary/react";
-import { crop } from "@cloudinary/url-gen/actions/resize";
-import { coloumnWidthFunction } from "./gallery-grid";
 
 
 
