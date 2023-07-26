@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-import GalleryGrid, { coloumnWidthFunction } from "../components/Gallery/gallery-grid";
+import GalleryGrid, { columnWidthFunction } from "../components/Gallery/gallery-grid";
 import { graphql } from 'gatsby';
 import GalleryPicture, { PictureFormat } from "../components/Gallery/gallery-picture";
-import { useWindowWidth } from "@react-hook/window-size";
 import SlideInModal from "../components/Slide-In-Modal/slide-in-modal";
 import DetailPicture from "../components/Gallery/detail-picture";
 import { Cloudinary, CloudinaryImage } from "@cloudinary/url-gen";
 import { crop, thumbnail } from "@cloudinary/url-gen/actions/resize";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 const cld = new Cloudinary({
   cloud: {
@@ -17,8 +17,8 @@ const cld = new Cloudinary({
 });
 
 
-const LandScapeGellery: React.FunctionComponent = ({ data }) => {
-  const windowWidth = useWindowWidth({ wait: 100, initialWidth: 1920});
+const LandScapeGallery: React.FunctionComponent = ({ data }) => {
+  const windowWidth = useWindowSize().width ?? 10;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [picture, setPicture] = React.useState<PictureFormat | null>(null);
 
@@ -34,7 +34,7 @@ const LandScapeGellery: React.FunctionComponent = ({ data }) => {
     }, 500);
   }
 
-  const columnWidth = coloumnWidthFunction(windowWidth);
+  const columnWidth = columnWidthFunction(windowWidth);
   const maxSpan = Math.floor(windowWidth / columnWidth);
 
 
@@ -95,7 +95,7 @@ const LandScapeGellery: React.FunctionComponent = ({ data }) => {
   )
 }
 
-export default LandScapeGellery;
+export default LandScapeGallery;
 
 export const query = graphql`
   query  {

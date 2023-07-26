@@ -6,8 +6,8 @@ const GalleryGrid: React.FunctionComponent<GalleryPictureProps> = ({children, wi
             <div className="pl-8 w-full" style={{
                     display: "grid",
                     gap: "5px",
-                    gridTemplateColumns:`repeat(auto-fit, ${coloumnWidthFunction(windowWidth)}px)`,
-                    gridTemplateRows: `repeat(auto-fit, ${coloumnWidthFunction(windowWidth)}px)`,
+                    gridTemplateColumns:`repeat(auto-fit, ${columnWidthFunction(windowWidth)}px)`,
+                    gridTemplateRows: `repeat(auto-fit, ${columnWidthFunction(windowWidth)}px)`,
                     gridAutoFlow: "dense",
             }}>
                 {children}
@@ -21,7 +21,7 @@ export interface GalleryPictureProps {
     windowWidth: number;
 } 
 
-export const coloumnWidthFunction = (windowWidth: number): number => {
+export const columnWidthFunction = (windowWidth: number): number => {
     if (windowWidth < 600) {
         return 100
     } else if (windowWidth < 900) {
