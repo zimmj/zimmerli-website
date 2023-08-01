@@ -38,7 +38,7 @@ const LandScapeGallery: React.FunctionComponent = ({ data }) => {
   const maxSpan = Math.floor(windowWidth / columnWidth);
 
 
-  function calculatePicture(maxSpan: number, width: number, span: number, id: string): CloudinaryImage {
+  function createCutPictureTag(maxSpan: number, width: number, span: number, id: string): CloudinaryImage {
     const pictureColumnWidth = width / maxSpan;
     const amountOfGap = 5 * (span - 1);
     const cloudinaryImage = cld.image(id);
@@ -56,7 +56,7 @@ const LandScapeGallery: React.FunctionComponent = ({ data }) => {
     const pictures: React.ReactNode = data.allCloudinaryMedia.edges.map((node: any, index: number) => {
       const media: ICloudinaryMedia = node.node;
       const span = Math.min(Math.floor(media.originalWidth / media.originalHeight), maxSpan);
-      const pictureTag = calculatePicture(
+      const pictureTag = createCutPictureTag(
         maxSpan, media.originalWidth, span, media.publicId);
       const picture: PictureFormat = {
         id: media.publicId,

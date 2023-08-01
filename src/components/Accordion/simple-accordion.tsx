@@ -1,8 +1,9 @@
 import React, { useId } from 'react';
-import Accordion from './accordion';
+import Accordion, { ControlledAccordion } from './accordion';
 
 export interface SimpleAccordionProps {
     accordions: AccordionContent[];
+    multiOpen?: boolean;
 }
 
 export interface AccordionContent {
@@ -11,7 +12,7 @@ export interface AccordionContent {
 }
 
 
-const SimpleAccordion: React.FunctionComponent<SimpleAccordionProps> = ({ accordions}) => {
+const SimpleAccordion: React.FunctionComponent<SimpleAccordionProps> = ({ accordions, multiOpen}) => {
 
     const accordionId = useId();
 
@@ -19,6 +20,15 @@ const SimpleAccordion: React.FunctionComponent<SimpleAccordionProps> = ({ accord
         <div className='join join-vertical w-full'>
             {accordions.map((accordion, index) => {
                 return (
+                    multiOpen ?
+                    <ControlledAccordion
+                        key={index}
+                        title={accordion.title}
+                        accordionId={'acoordion-' + index}
+                    >
+                        {accordion.content}
+                    </ControlledAccordion>
+                    :
                     <Accordion
                         key={index}
                         title={accordion.title}

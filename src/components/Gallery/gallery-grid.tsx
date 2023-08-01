@@ -21,6 +21,8 @@ export interface GalleryPictureProps {
     windowWidth: number;
 } 
 
+
+// user hard coded steps to lower amount of re-renders and re-loading pictures
 export const columnWidthFunction = (windowWidth: number): number => {
     if (windowWidth < 600) {
         return 100
