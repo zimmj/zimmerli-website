@@ -11,16 +11,14 @@ const Index: React.FunctionComponent = () => {
         <div className="max-w-xl width-12 mx-auto">
           <Seo title="home" description="This is the landing page of the website" />
           <h2>Welcome to my humble website</h2>
-          <p>This website is in a slow build up phase. At the moment I try out Gatsby itself.
-            I added Tailwind css to learn this new approach with classes for all css function.
-            To increase the speed of programming. I am using daisy UI for some different basic components </p>
+          <p>This is my small pet website. I will work on it from time to time and to try out some html and JS stuff. </p>
           <p>This website is freely hosted on <a href="https://netlify.com" target="_blank" rel="noopener noreferrer">netlyfy</a>.
             The only thing you need to provide is the domain and they will create for you a certificate with let's encrypt.</p>
-          <p>I am working at the moment as software engineer for <a href="https://www.prodyna.com" target="_blank" rel="noopener noreferrer">Prodyna.</a></p>
-          <p>This website is a small play field to learn the technologies of Tailwind and Gatsby to enlarge my knowledge.
-            As a developer I see myself as a trouble shooter and generalist. I can work best in small environments.
-            In this environments I can impact different fields with my fast adaptation and broad knowledge of technologies
-          </p>
+          <p>I am working as a freelancer and therefore use the most of my time to travel and work for some different customers.</p>
+
+          <p>To see some of my other private project, see my <a href="https://github.com/zimmj">github account</a></p>
+
+          <p>One of my hobbies is to participate in hackathons, as they bring people together and make me learn new stuff.</p>
 
           <h4>Accordion with multiple open</h4>
           <SimpleAccordion multiOpen={true}
