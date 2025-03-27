@@ -5,19 +5,20 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 
-
-import Header from "./header"
-import ReactModal from "react-modal"
+import Header from './header';
+import ReactModal from 'react-modal';
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
-ReactModal.setAppElement('#___gatsby')
+ReactModal.setAppElement('#___gatsby');
 
-const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
+const Layout: React.FunctionComponent<LayoutProps> = ({
+  children,
+}) => {
   const data: any = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,15 +27,18 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
-  const siteTitle: string = data.site.siteMetadata?.title || 'Title'
+  const siteTitle: string = data.site.siteMetadata?.title || 'Title';
 
   return (
-    <div className="w-full h-screen prose max-w-none" style={{
-      display: "grid",
-      gridTemplateRows: "min-content 1fr min-content"
-    }}>
+    <div
+      className="w-full h-screen prose max-w-none"
+      style={{
+        display: 'grid',
+        gridTemplateRows: 'min-content 1fr min-content',
+      }}
+    >
       <Header siteTitle={siteTitle} />
       <main className="mx-auto w-full">{children}</main>
 
@@ -44,7 +48,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
 export default Layout;

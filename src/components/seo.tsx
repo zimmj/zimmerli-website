@@ -5,19 +5,24 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
 interface SEOProps {
-  description?: string,
-  lang?: string,
-  meta?: Array<{name: string, content: string}>,
-  title: string,
+  description?: string;
+  lang?: string;
+  meta?: Array<{ name: string; content: string }>;
+  title: string;
 }
 
-export const Seo: React.FunctionComponent<SEOProps> = ({ description = "", lang = 'en', meta = [], title }) => {
-  const { site } : any = useStaticQuery(
+export const Seo: React.FunctionComponent<SEOProps> = ({
+  description = '',
+  lang = 'en',
+  meta = [],
+  title,
+}) => {
+  const { site }: any = useStaticQuery(
     graphql`
       query {
         site {
@@ -28,11 +33,12 @@ export const Seo: React.FunctionComponent<SEOProps> = ({ description = "", lang 
           }
         }
       }
-    `
-  )
+    `,
+  );
 
-  const metaDescription: string = description || site.siteMetadata.description
-  const defaultTitle:string = site.siteMetadata?.title
+  const metaDescription: string =
+    description || site.siteMetadata.description;
+  const defaultTitle: string = site.siteMetadata?.title;
 
   return (
     <Helmet
@@ -40,7 +46,9 @@ export const Seo: React.FunctionComponent<SEOProps> = ({ description = "", lang 
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
+      titleTemplate={
+        defaultTitle ? `%s | ${defaultTitle}` : undefined
+      }
       meta={[
         {
           name: `description`,
@@ -76,7 +84,7 @@ export const Seo: React.FunctionComponent<SEOProps> = ({ description = "", lang 
         },
       ].concat(meta)}
     />
-  )
-}
+  );
+};
 
 export default Seo;
