@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 import { Link } from 'gatsby';
 import SimpleAccordion from '../components/Accordion/simple-accordion';
+import { MicroservicesModulithSection } from '../content/expertise/microservices-modulith';
 
 const Index: React.FunctionComponent = () => {
   return (
@@ -44,7 +45,21 @@ const Index: React.FunctionComponent = () => {
             One of my hobbies is to participate in hackathons, as they
             bring people together and make me learn new stuff.
           </p>
+        </div>
 
+        {/* Expertise Section - Wider Container */}
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="divider my-8"></div>
+
+          <h2 className="text-3xl font-bold mb-6">My Expertise</h2>
+
+          <MicroservicesModulithSection />
+
+          <div className="divider my-8"></div>
+        </div>
+
+        {/* Back to Narrow Container */}
+        <div className="max-w-xl width-12 mx-auto">
           <h4>Accordion with multiple open</h4>
           <SimpleAccordion
             multiOpen={true}
